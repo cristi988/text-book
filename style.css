@@ -1,3 +1,68 @@
-form {
-    border: 1px;
+body {
+    margin: 0px;
+}
+
+.title {
+    /* display: flex; */
+    /* height: 100px; */
+    margin: auto;
+    text-align: left;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+.inline-form-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+
+
+#title { 
+
+    text-align: center;
+    background-color: hsl(171, 100%, 41%);
+    display: flex;
+    justify-content: center;
+}
+
+.rows {
+    border-radius: 3px;
+
+}
+
+
+.w-100 {
+    width: 100%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+
+label {
+    padding: 0.2rem 1rem;
+    color: gray;
+}
+
+form {    
+    text-align: center;
+    margin: auto;
+    border : 1px solid red;
 }

@@ -9,22 +9,41 @@
 </head>
 <body>
 
-    <h1>Form</h1>
+    <div id="title">
+         <h1>Contact Form</h1>
+    </div>      
 
-    <form>
-        <div>
-            <label for="fName">First Name: </label>
-            <input type="text" name="fName" id="fName">
-        </div>  
+    <form class="w-50">
 
-        <div>
-            <label for="lName">Last Name: </label>
-            <input type="text" name="lName" id="lName">
+        <p class="title w-75">Name:</p>
+        <div class="content w-100">          
+
+            <div class="inline-form-control w-50">
+                <input class="rows w-75" type="text" name="fName" id="fName">
+                <label for="fName" class="w-100">First Name: </label>
+            </div>
+
+            <div class="inline-form-control w-50">
+                <input class="rows w-75" type="text" name="lName" id="lName">
+                <label for="lName" class="w-100">Last Name: </label>
+            </div>
+         </div>
+
+         
+
+        <div class="content w-100">
+            <div class="inline-form-control w-100">
+                <label for="email">Email: </label>
+                <input class="rows w-100" type="email" name="email" id="email">
+            </div>
         </div>
 
-        <div>
-            <label for="address">Address: </label>
-            <input type="text" name="addr" id="address">
+
+        <div class="content w-100">
+            <div class="inline-form-control w-100">
+                <label for="address">Address: </label>
+                <input class="rows w-100" type="text" name="addr" id="address">
+            </div>
         </div>
 
         <button onclick="getData()" type="button">Submit</button>
