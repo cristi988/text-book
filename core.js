@@ -38,8 +38,13 @@ function render() {
     for(i = 0; i < store.length; i++){
         console.log(i)
         store[i];
-        template += `<table> <tr > <td>${store[i].fName} ${store[i].lName} <i onclick="remove(${i})" class="text-danger bi bi-x-square-fill"></i></td></tr>  <tr><td>${store[i].address}</td></tr>  
-        <tr><td>${store[i].email}</td></tr>  <tr><td>${store[i].phoneNumber}</td></tr></table>`;
+        template += `<div class="main-template"> <div class="template">${store[i].fName}  ${store[i].lName}</div> <div class="template">${store[i].address}</div>
+        <div class="template">${store[i].email}</div> <div class="template">${store[i].phoneNumber}</div> 
+        <div class="template"><i onclick="remove(${i})" class="text-danger bi bi-x-square-fill"></i></div> <br> </div>`;
+
+        // template += `<table> <tr > <td>${store[i].fName} ${store[i].lName} <i onclick="remove(${i})" class="text-danger bi bi-x-square-fill"></i></td></tr>  <tr><td>${store[i].address}</td></tr>  
+        // <tr><td>${store[i].email}</td></tr>  <tr><td>${store[i].phoneNumber}</td></tr></table>`;
+        
     }
 
     container.innerHTML = template;
