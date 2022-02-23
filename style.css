@@ -130,19 +130,21 @@
     color:white;  
 }
 
-.text-danger-show {
+.error-danger {
     display: none;
-    color: var(--danger);
 }
 
 
 input{
     box-sizing: border-box;
+
 }
 
 body {
     margin: 0px;
+    background-color: hsl(219, 70%, 96%);
 }
+
 
 h3 {
     text-align: center;
@@ -159,7 +161,29 @@ button{
     border:none;
 }
 
+table {
+    margin: 2rem 5rem 1rem ;
+    width: 20%;
+    display: inline-table;
+    background-color: white;
+    text-align: center;
+    border-radius: 4px;
+    font-family: 'Roboto Serif', sans-serif;
+
+}
+
+
+tr {
+    background-color: hsl(0, 0%, 98%);
+ }
+
+ td {
+     padding-bottom: 0.5rem;
+ }
+
 
 .border {
     border:1px solid red;
 }
+
+

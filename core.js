@@ -38,8 +38,8 @@ function render() {
     for(i = 0; i < store.length; i++){
         console.log(i)
         store[i];
-        template += `${store[i].fName} - ${store[i].lName} - ${store[i].address} - ${store[i].email} - ${store[i].phoneNumber} - 
-        <i onclick="remove(${i})" class="text-danger bi bi-x-square-fill"></i> <br>`;
+        template += `<table> <tr > <td>${store[i].fName} ${store[i].lName} <i onclick="remove(${i})" class="text-danger bi bi-x-square-fill"></i></td></tr>  <tr><td>${store[i].address}</td></tr>  
+        <tr><td>${store[i].email}</td></tr>  <tr><td>${store[i].phoneNumber}</td></tr></table>`;
     }
 
     container.innerHTML = template;
@@ -80,7 +80,10 @@ function renderFeedback(element) {
         element.classList.remove('border-danger');
     } else{
         element.classList.add('border-danger');
-        element.classList.remove('border-success');        
+        element.classList.remove('border-success'); 
+
+        document.querySelector('#error').classList.remove('error-danger');
+
         throw new Error('You must fill all fields')
     }
 
