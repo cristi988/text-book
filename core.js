@@ -16,6 +16,7 @@ function getData(){
     let email = document.getElementById('email');
     let address = document.getElementById('address');
     let phoneNumber = document.getElementById('phone-number');
+
     //validate 
     validate([fName, lName, email, address, phoneNumber]);
 
@@ -79,16 +80,18 @@ function renderFeedback(element) {
         element.classList.remove('border-danger');
     } else{
         element.classList.add('border-danger');
-        element.classList.remove('border-success');
+        element.classList.remove('border-success');        
         throw new Error('You must fill all fields')
     }
 
 }
+
 
 function validate(data) {
     for (let i = 0; i < data.length; i++) {
         renderFeedback(data[i]);
     }
 }
+
 
 
