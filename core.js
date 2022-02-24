@@ -113,13 +113,28 @@ function validate(data) {
  */
 function cardTemplate(i) {
 
-        template += `<div class="main-template"> <div class="template">${store[i].fName}  ${store[i].lName}</div> <div class="template">${store[i].address}</div>
-        <div class="template">${store[i].email}</div> <div class="template">${store[i].phoneNumber}</div> 
+        template += ` 
+    
+    <div class="card">
+
+        <div class="titles">
+            <h3>${store[i].fName}  
+            ${store[i].lName}</h3>
+        </div>
         
-        <div class="template"> <i onclick="remove(${i})" class="text-danger bi bi-x-square-fill"></i>
-        <i class="bi bi-pencil-square"></i></div>  
-        
-        <br> </div>`;
+        <div class="contents"> 
+            ${store[i].address} <br>
+            ${store[i].email} <br>
+            ${store[i].phoneNumber}
+        </div>
+
+        <div class="footer"> 
+            <button class="danger w-50 p1" onclick="remove(${i})">Delete <i class="bi bi-x-square"></i></i></button>
+            <button class="primary w-50 p1"> Edit <i class="bi bi-pencil-square"></i></button>
+        </div> 
+
+    </div>
+        `;
 
 }
 
