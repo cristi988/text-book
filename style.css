@@ -117,6 +117,11 @@
     color:white;
 }
 
+.success {
+    background-color: var(--success);
+    color: white;
+}
+
 .border-danger {
     border : 1px solid var(--danger);
 }
@@ -139,37 +144,6 @@
     border-radius: 5px;
     font-size: 17px;
     border:none;
-}
-
-
-
-/* elements */
-input{
-    box-sizing: border-box;
-
-}
-
-body {
-    margin: 0px;
-    background-color: #f8f9fa;
-}
-
-h2 {
-    text-align: center;
-}
-
-form {    
-    text-align: center;
-    margin: auto;
-}
-
-button {
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
 }
 
 .text-book {
@@ -214,6 +188,41 @@ button {
     padding: 0;
     margin: 0;
 }
+
+
+
+/* elements */
+input{
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0px;
+    background-color: #f8f9fa;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {    
+    text-align: center;
+    margin: auto;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+
+/* Media Query */
 
 /* iPad mini */
 @media only screen and (max-width: 768px) {   

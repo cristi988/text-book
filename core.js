@@ -130,7 +130,7 @@ function cardTemplate(i) {
 
         <div class="footer"> 
             <button class="danger w-50 p1" onclick="remove(${i})">Delete <i class="bi bi-x-square"></i></i></button>
-            <button class="primary w-50 p1"> Edit <i class="bi bi-pencil-square"></i></button>
+            <button class="success w-50 p1"> Edit <i class="bi bi-pencil-square"></i></button>
         </div> 
 
     </div>
