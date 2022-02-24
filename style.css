@@ -215,6 +215,53 @@ button {
     margin: 0;
 }
 
+/* iPad mini */
+@media only screen and (max-width: 768px) {   
+
+    .text-book-content {
+        width: 100%;
+    }
+
+    .card {
+        width: 40%;
+    }
+
+    .contents {
+        height: 150px;
+        padding-top: 2rem;
+    }
+    
+    .w-50, form {
+        width: unset;
+        max-width: 67%;        
+    }
+}
+
+/*  iPhone 12 pro */
+@media only screen and (max-width: 390px) {   
+
+    .text-book-content {
+        max-width: 65%;
+        flex-direction: column;  
+        text-align: center;     
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .contents {
+        height: 150px;
+        padding-top: 2rem;
+    }
+    
+    .w-50, form {
+        width: unset;
+        max-width: 67%;        
+    }
+}
+
+
 
 
 
