@@ -115,7 +115,11 @@ function cardTemplate(i) {
 
         template += `<div class="main-template"> <div class="template">${store[i].fName}  ${store[i].lName}</div> <div class="template">${store[i].address}</div>
         <div class="template">${store[i].email}</div> <div class="template">${store[i].phoneNumber}</div> 
-        <div class="template"><i onclick="remove(${i})" class="text-danger bi bi-x-square-fill"></i></div> <br> </div>`;
+        
+        <div class="template"> <i onclick="remove(${i})" class="text-danger bi bi-x-square-fill"></i>
+        <i class="bi bi-pencil-square"></i></div>  
+        
+        <br> </div>`;
 
 }
 
