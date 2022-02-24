@@ -130,7 +130,7 @@
     color:white;  
 }
 
-.error-danger {
+.invisible {
     display: none;
 }
 
@@ -166,12 +166,12 @@ button{
     
     float: left;
     width: 33%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 
 .template {   
-    border:1px solid red;
+    /* border:1px solid red; */
     /* margin: auto; */
     padding: 10px;
     width: 60%;
