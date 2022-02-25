@@ -132,10 +132,10 @@ function cardTemplate(i) {
     
         <div class="card">
 
-            <div class="titles">
-            <div class="circle"> </div>
+            <div class="title">            
                 <h3>${store[i].fName}  
                 ${store[i].lName}</h3>
+                <div class="circle"> </div>
             </div>
             <hr>
             
@@ -144,10 +144,11 @@ function cardTemplate(i) {
                 ${store[i].email} <br>
                 ${store[i].phoneNumber}
             </div>
+            <hr>
 
             <div class="footer"> 
-                <button class="danger w-50 p1" onclick="remove(${i})">Delete <i class="bi bi-x-square"></i></i></button>
-                <button class="success w-50 p1" onclick="edit(${i})"> Edit <i class="bi bi-pencil-square"></i></button>
+                <button class="danger w-40 p1" onclick="remove(${i})">Delete <i class="bi bi-x-square"></i></i></button>
+                <button class="success w-40 p1" onclick="edit(${i})"> Edit <i class="bi bi-pencil-square"></i></button>
             </div> 
 
         </div>
@@ -174,7 +175,6 @@ function createAlert(type, message, live=2) {
     }, live*1000)
 
 }
-
 
 /**
  * This function edits the data 

@@ -1,26 +1,18 @@
 /* Variables */
-
-.circle {
-    width:100px;
-    height: 100px;
-    border-radius:50%;
-    background-image: url('https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg');
-    background-position: center;
-    background-size: cover;
-
-}
-
-
-
 :root {
     --primary: hsl(204, 86%, 53%);
     --danger: hsl(348, 100%, 61%);
     --success: hsl(141, 71%, 48%);
-    --info: hsl(171, 100%, 41%);
+    --info: #7d5daf;
+    --font: 'Roboto Serif', sans-serif;
   }
 
 
 /* Helpers */
+
+.w-40 {
+    width: 40%;
+}
 
 .w-50 {
     width: 50%;
@@ -96,14 +88,9 @@
     color: var(--danger);
 }
 
-.border {
-    border:1px solid red;
-}
-
 .border-danger{
     border:1px solid red;
 }
-
 
 .bg-danger {
     background-color: var(--danger);
@@ -119,7 +106,7 @@
 
 
 
-/* classes & ides */
+/* classes & ID-es */
 
 #contact-title { 
     text-align: center;
@@ -128,7 +115,7 @@
     justify-content: center;
 }
 
-.title {
+.name {
     display:flex;
     text-align: left;
     padding: .5rem 0rem;
@@ -190,7 +177,7 @@
 
 .text-book {
     width: 100%;
-
+   
 }
 
 .text-book-content {
@@ -201,6 +188,7 @@
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
+    
 }
 
 .card {   
@@ -210,18 +198,21 @@
     border-radius: 10px;
     border:1px solid rgb(231, 231, 231);
     transition-duration: 300ms;
+    background-color: white;
+    
 }
 
 .card:hover {
     -webkit-box-shadow: 0px 0px 5px 1px #d7dddd; 
     box-shadow: 0px 0px 5px 3px #d6d6d6;
-    transform: scale(1.01);    
+    transform: scale(1.01);   
+     
 }
 
-.titles, .contents {    
+.title, .contents {    
     padding: 10px;
     max-width: 100%;
-    font-family: 'Roboto Serif', sans-serif;
+    font-family: var(--font);
     line-height: 30px;
 }
 
@@ -232,12 +223,12 @@
     justify-content: space-between;
 }
 
-.titles h3 {
+.title h3 {
     padding: 0;
     margin: 0;
 }
 
-.titles{
+.title{
     display: flex;
     justify-content: flex-start;
 
@@ -246,6 +237,16 @@
 
 .alert-container {
     height: 70px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius:50%;
+    background-image: url('https://images.ctfassets.net/lzny33ho1g45/4ODoWVyzgicvbcb6J9ZZZ5/89e33c333afa86e9e2864ba42833a5be/app-tips-google-forms-00-hero.png?w=1520&fm=jpg&q=30&fit=thumb&h=760');
+    background-position: center;
+    background-size: cover;
+    margin-left: 10px;
 }
 
 
@@ -257,7 +258,7 @@ input{
 
 body {
     margin: 0px;
-    background-color: #f8f9fa;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b0b0b0' fill-opacity='0.12' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 h2 {
@@ -267,7 +268,16 @@ h2 {
 form {    
     text-align: center;
     margin: auto;
+    border: 1px solid rgb(231, 231, 231);
+    border-radius: 5px;
+    background-color: rgb(249, 250, 250);
+    font-family: var(--font);
 }
+
+button:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+  }
 
 button {
     border: none;
@@ -282,24 +292,50 @@ button {
 
 
 /* Media Query */
-@media (min-width: 1400px) {
+
+/* xxl = extra extra large */
+@media (min-width: 1400px) {    
+    .text-book {
+        font-size: 20px;
+    }
+
+    .text-book-content {
+        width: 70%;
+    }
+
+    .card {
+        width: 20%;
+        margin : auto;
+        margin-top: 2rem;
+        justify-content: space-evenly;
+    }
+
+    .contents {
+        height: 150px;
+        padding-top: 2rem;
+    }
+
+    .w-50 {
+        width: 30%;
+    }
+
+    .footer {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .content{
+        width: unset;
+    }
+
+    .test {
+        width: 50%;
+    }
 
 }
 
+/* xl = extra large */
 @media (min-width: 1200px) and (max-width: 1399px) {
-
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-
-}
-
-/* tablets*/
-@media (min-width: 576px) and (max-width: 767px) {   
 
     .text-book-content {
         width: 100%;
@@ -314,21 +350,89 @@ button {
         padding-top: 2rem;
     }
 
+    .w-50 {
+        width: 50%;
+    }
+    
 }
 
-/*  Phones */
-@media only screen and (max-width: 576px) {   
+/* lg = large */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .text-book-content {
+        width: 100%;
+    }
+
+    .card {
+        width: 40%;
+    }
+
+    .contents {
+        height: 150px;
+        padding-top: 2rem;
+    }
+
+    .w-50 {
+        width: 92%;
+    }
+
+}
+
+/* md = medium */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .text-book-content {
+        width: 100%;
+    }
+
+    .card {
+        width: 40%;
+    }
+
+    .contents {
+        height: 150px;
+        padding-top: 2rem;
+    }
+
+    .w-50 {
+        width: 92.7%;
+    }
+}
+
+/* sm = small */
+ @media (min-width: 576px) and (max-width: 767px) {   
+
+    .text-book-content {
+        width: 100%;
+    }
+
+    .card {
+        width: 40%;
+    }
+
+    .contents {
+        height: 150px;
+        padding-top: 2rem;
+    }
+
+    .w-50 {
+        width: 95%;
+    }
+
+} 
+
+/*  XS = extra small */
+@media only screen and (max-width: 575px) {   
 
     .text-book-content {
         width: 100%;
         flex-direction: column;  
-        text-align: center;  
-
+        text-align: left;  
     }
 
     .card {
         width: 80%;
         margin: auto;
+        margin-top: 2rem;
     }
 
     .contents {
