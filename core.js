@@ -3,27 +3,36 @@ let store = [];
 
 let template = ``;
 
+let fName = document.getElementById('fName');
+let lName = document.getElementById('lName');
+let email = document.getElementById('email');
+let address = document.getElementById('address');
+let phoneNumber = document.getElementById('phone-number');
+
+// window.alert(response)
 
 /**
- * This function gets the data from inputs 
+ * This function gets the data from inputs
+ * "also" checks if the contact already exists 
  * 
  */
 function getData(){
-
-    //collect data 
-
-    let fName = document.getElementById('fName');
-    let lName = document.getElementById('lName');
-    let email = document.getElementById('email');
-    let address = document.getElementById('address');
-    let phoneNumber = document.getElementById('phone-number');
-
     //validate 
     validate([fName, lName, email, address, phoneNumber]);
+
+    let response = store.filter((item)=>{
+        return item.email == email.value || item.phoneNumber == phoneNumber.value
+    });
+
+    if(response.length > 0) {
+        createAlert('danger', 'This contact already exists', 10);
+        throw new Error('The contact already exists');
+    }
 
     store.push({fName: fName.value, lName : lName.value, address : address.value, email : email.value, phoneNumber : phoneNumber.value});
 
     render()
+    document.querySelector('form').reset();
 }
 
 /**
@@ -37,8 +46,10 @@ function render() {
     template = '';
 
     for(i = 0; i < store.length; i++){    
-        cardTemplate(i);
+        cardTemplate(i);        
     }
+
+    createAlert('success', 'You have saved the contact successfully!', 2);
 
     container.innerHTML = template;
 }
@@ -50,10 +61,14 @@ function render() {
  * @param {*} index 
  */
 function remove(index){
+    let response = window.confirm('Are you sure?');
 
-   store = store.filter( (item, key) =>  key != index);
-   render();
-
+    if (response == true) {
+        store = store.filter( (item, key) =>  key != index);
+        render();
+        createAlert('danger', 'You have successfully deleted a contact!', 2)
+    }
+    
 }
 
 /**
@@ -88,7 +103,7 @@ function renderFeedback(element) {
         element.classList.add('border-danger');
         element.classList.remove('border-success'); 
        
-       errorSpan.classList.remove('invisible');
+        errorSpan.classList.remove('invisible');
 
         throw new Error('You must fill all fields')
     }
@@ -112,31 +127,70 @@ function validate(data) {
  * @param {*} i 
  */
 function cardTemplate(i) {
-
-        template += ` 
+   
+    template +=` 
     
-    <div class="card">
+        <div class="card">
 
-        <div class="titles">
-            <h3>${store[i].fName}  
-            ${store[i].lName}</h3>
+            <div class="titles">
+                <h3>${store[i].fName}  
+                ${store[i].lName}</h3>
+            </div>
+            
+            <div class="contents"> 
+                ${store[i].address} <br>
+                ${store[i].email} <br>
+                ${store[i].phoneNumber}
+            </div>
+
+            <div class="footer"> 
+                <button class="danger w-50 p1" onclick="remove(${i})">Delete <i class="bi bi-x-square"></i></i></button>
+                <button class="success w-50 p1" onclick="edit(${i})"> Edit <i class="bi bi-pencil-square"></i></button>
+            </div> 
+
         </div>
-        
-        <div class="contents"> 
-            ${store[i].address} <br>
-            ${store[i].email} <br>
-            ${store[i].phoneNumber}
-        </div>
-
-        <div class="footer"> 
-            <button class="danger w-50 p1" onclick="remove(${i})">Delete <i class="bi bi-x-square"></i></i></button>
-            <button class="success w-50 p1"> Edit <i class="bi bi-pencil-square"></i></button>
-        </div> 
-
-    </div>
-        `;
+    `;
 
 }
+
+/**
+ * This function creats alerts for the user
+ * 
+ * @param {*} type 
+ * @param {*} message 
+ * @param {*} live 
+ */
+function createAlert(type, message, live=2) {
+    let alertContainer = document.querySelector('.alert-container'); 
+
+    let template = `<p class="border-${type} bg-${type} text-light p1 mx-1 text-center rounded-5">${message}</p>`;
+
+    alertContainer.innerHTML = template;
+
+    setTimeout(()=>{
+        alertContainer.innerHTML = ''
+    }, live*1000)
+
+}
+
+
+/**
+ * This function edits the data 
+ * 
+ * @param {*} index 
+ */
+function edit(index) {
+
+    fName.value = store[index].fName
+    lName.value = store[index].lName
+    email.value = store[index].email
+    address.value = store[index].address
+    phoneNumber.value = store[index].phoneNumber
+
+    store = store.filter( (item, key) =>  key != index);
+}
+
+
 
 
 
