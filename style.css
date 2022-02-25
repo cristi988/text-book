@@ -199,6 +199,7 @@
     border:1px solid rgb(231, 231, 231);
     transition-duration: 300ms;
     background-color: white;
+    text-transform: capitalize; 
     
 }
 
@@ -231,7 +232,6 @@
 .title{
     display: flex;
     justify-content: flex-start;
-
     align-items: center;
 }
 
@@ -244,16 +244,14 @@
     height: 50px;
     border-radius:50%;
     background-image: url('https://images.ctfassets.net/lzny33ho1g45/4ODoWVyzgicvbcb6J9ZZZ5/89e33c333afa86e9e2864ba42833a5be/app-tips-google-forms-00-hero.png?w=1520&fm=jpg&q=30&fit=thumb&h=760');
-    background-position: center;
     background-size: cover;
-    margin-left: 10px;
+    background-position: center;
 }
 
 
 /* elements */
 input{
     box-sizing: border-box;
-
 }
 
 body {
@@ -270,8 +268,10 @@ form {
     margin: auto;
     border: 1px solid rgb(231, 231, 231);
     border-radius: 5px;
+    padding: 1rem;
     background-color: rgb(249, 250, 250);
     font-family: var(--font);
+    
 }
 
 button:hover {
