@@ -133,9 +133,11 @@ function cardTemplate(i) {
         <div class="card">
 
             <div class="titles">
+            <div class="circle"> </div>
                 <h3>${store[i].fName}  
                 ${store[i].lName}</h3>
             </div>
+            <hr>
             
             <div class="contents"> 
                 ${store[i].address} <br>
