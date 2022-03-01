@@ -212,7 +212,7 @@ document.getElementById('search').addEventListener('keyup',
     event.keyCode==8 ? store = persons : ''
    
     store = store.filter((item)=>{
-        if( item.fName.toLowerCase().match(event.target.value)){
+        if( item.fName.toLowerCase().match(event.target.value.toLowerCase())){
             return item;
         }
     })
