@@ -108,12 +108,12 @@
 
 /* classes & ID-es */
 
-#contact-title { 
+/* .contact-title { 
     text-align: center;
     background-color: var(--info);
     display: flex;
     justify-content: center;
-}
+} */
 
 .name {
     display:flex;
@@ -264,6 +264,7 @@
 }
 
 
+
 /* elements */
 input{
     box-sizing: border-box;
@@ -303,6 +304,9 @@ button {
     align-items: center;
     cursor:pointer;
 }
+
+
+
 
 
 
@@ -485,5 +489,30 @@ button {
   
 }
 
+
+
+.contact-title {
+    background-color: var(--info);
+    width: 100%;
+    display: flex;
+}
+
+.search-bar {
+    width: 20%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 60%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.btn {
+    margin-top: 1.8rem;
+    margin-left: 0.5rem;
+    width: 25px;
+    height: 25px;
+    background-color: var(--info);
+}
 
 
