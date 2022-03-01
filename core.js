@@ -1,5 +1,5 @@
 
-let store = [];
+let store = persons;
 
 let template = ``;
 
@@ -9,6 +9,7 @@ let email = document.getElementById('email');
 let address = document.getElementById('address');
 let phoneNumber = document.getElementById('phone-number');
 
+render();
 // window.alert(response)
 
 /**
@@ -150,7 +151,7 @@ function cardTemplate(i) {
 
             <div class="footer"> 
                 <button class="danger w-40 p1" onclick="remove(${i})">Delete <i class="bi bi-x-square"></i></i></button>
-                <button class="success w-40 p1" onclick="edit(${i})"> Edit <i class="bi bi-pencil-square"></i></button>
+                <button class="success w-40 p1" onclick="edit(${i}), showForm()" > Edit <i class="bi bi-pencil-square"></i></button>
             </div> 
 
         </div>
@@ -191,8 +192,7 @@ function edit(index) {
     address.value = store[index].address
     phoneNumber.value = store[index].phoneNumber
 
-    store = store.filter( (item, key) =>  key != index);
-    
+    store = store.filter( (item, key) =>  key != index);    
 }
 
 function showForm(){
@@ -200,8 +200,22 @@ function showForm(){
 }
 
 function hideForm() {
-    document.querySelector('.backdrop').classList.add('invisible'); 
+    document.querySelector('.backdrop').classList.add('invisible');
 }
+
+document.getElementById('search').addEventListener('keydown',
+(event)=>{
+    console.log(event)
+    console.log(event.target.value)
+
+    store = store.filter((item)=>{
+        if( item.fName.includes(event.target.value)){
+            return item;
+        }
+    })
+    render();
+})
+
 
 
 

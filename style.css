@@ -104,17 +104,11 @@
     color:rgb(241, 241, 241);
 }
 
+/*End of Helpers*/
+
 
 
 /* classes & ID-es */
-
-/* .contact-title { 
-    text-align: center;
-    background-color: var(--info);
-    display: flex;
-    justify-content: center;
-} */
-
 .name {
     display:flex;
     text-align: left;
@@ -175,13 +169,14 @@
     border:none;
 }
 
-.cancle-form {
+.cancel-form {
     padding: 1rem;    
     border-radius: 5px;
     font-size: 17px;
     border:none;
     background-color: #343a40;
-    color: #dc3545;
+    color: white;
+    border: 1px solid var(--danger);
 }
 
 .buttons-action {
@@ -263,6 +258,88 @@
     margin-right: 20px;
 }
 
+/* Contact Title*/
+.left {
+    color: white;
+    text-align: center;
+}
+
+/* div wrapper for NavBar*/
+.contact-title {
+    background-color: var(--info);
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+}
+
+
+/* Button for contacts at NavBar*/
+.centre {
+    display: flex;
+    justify-content: center;
+}
+
+.addContact {
+    margin: auto;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;  
+}
+
+
+/*search bar*/
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.search-bar {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.search-form input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 0.8rem;
+}
+
+.search-form button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 0.63rem;
+}
+
+.search-bar {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* End of NavBar*/
+
+/* Modal*/
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    padding-top : 10%;
+    position: absolute;
+    z-index: 999;
+}
+
+/*End of Modal*/
+
 
 
 /* elements */
@@ -272,6 +349,7 @@ input{
 
 body {
     margin: 0px;
+    font-family: var(--font);
     background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b0b0b0' fill-opacity='0.12' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
@@ -287,12 +365,10 @@ form {
     padding: 1rem;
     background-color: rgb(249, 250, 250);
     font-family: var(--font);
-    
 }
 
 button:hover {
-    color: rgba(255, 255, 255, 1);
-    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+    box-shadow: 0 5px 15px rgba(95, 94, 95, 0.4);
   }
 
 button {
@@ -307,9 +383,6 @@ button {
 
 
 
-
-
-
 /* Media Query */
 
 /* xxl = extra extra large */
@@ -319,11 +392,12 @@ button {
     }
 
     .text-book-content {
-        width: 70%;
+        width: 100%;
+        padding-top: 5rem;
     }
 
     .card {
-        width: 30%;
+        width: 25%;
         margin : auto;
         margin-top: 2rem;
         justify-content: space-evenly;
@@ -334,7 +408,7 @@ button {
         padding-top: 2rem;
     }
 
-    .w-50 {
+    .mobile-xxl {
         width: 30%;
     }
 
@@ -369,7 +443,7 @@ button {
         padding-top: 2rem;
     }
 
-    .w-50 {
+    .mobile-xl {
         width: 50%;
     }
     
@@ -390,7 +464,7 @@ button {
         padding-top: 2rem;
     }
 
-    .w-50 {
+    .mobile-l {
         width: 92%;
     }
 
@@ -412,7 +486,7 @@ button {
         padding-top: 2rem;
     }
 
-    .w-50 {
+    .mobile-m {
         width: 92.7%;
     }
 }
@@ -433,7 +507,7 @@ button {
         padding-top: 2rem;
     }
 
-    .w-50 {
+    .mobile-s {
         width: 95%;
     }
 
@@ -442,10 +516,42 @@ button {
 /*  XS = extra small */
 @media only screen and (max-width: 575px) {   
 
+    /* nav Bar*/
+    .contact-title {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left {
+        display: none;
+    }
+    
+    .centre {
+        height: 60px;
+    }
+
+    .addContact {
+        height: 50px;
+        width: 95%;
+        font-size: 20px;
+    }
+
+    .right {
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .search-form {
+        width: 95%;
+        margin-top: 10px;
+    }
+     /*End of Nav Bar*/
+
     .text-book-content {
         width: 100%;
         flex-direction: column;  
         text-align: left;  
+        margin-top: 60px;
     }
 
     .card {
@@ -459,60 +565,15 @@ button {
         padding-top: 2rem;
     }
     
-    .w-50 {
-        width: 90%;
+    .mobile-xs {
+        width: 80%;
     }
     
 }
 
 
 
-/* Modal*/
-
-.backdrop {
-   background-color: rgba(0, 0, 0, 1);
-   width: 100%;
-   height: 100%;
-   position: absolute;
-
-}
-
-.addContact {
-    font-size: 30px;
-    padding: 1rem;    
-    border-radius: 5px;
-    font-size: 17px;
-    border:none;
-    background-color: var(--info);
-    margin : auto;
-    margin-top: 10px;
-  
-}
 
 
-
-.contact-title {
-    background-color: var(--info);
-    width: 100%;
-    display: flex;
-}
-
-.search-bar {
-    width: 20%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-left: 60%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
-.btn {
-    margin-top: 1.8rem;
-    margin-left: 0.5rem;
-    width: 25px;
-    height: 25px;
-    background-color: var(--info);
-}
 
 

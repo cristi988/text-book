@@ -1,4 +1,4 @@
-export const persons = [
+const persons = [
   {
     "fName": "Elsa ",
     "lName": "Gilliam",

@@ -10,17 +10,25 @@
 </head>
 <body>
     
-    <div class="contact-title">
-        <h1>Contact Form</h1>        
-        <input class="search-bar" type="text" placeholder="Search Contact">
-
-  
-            <button class="btn"><i class="bi bi-search"></i></button>
- 
+    <div class="contact-title w-100">
+        <div class="left w-100">
+            <h1>Contact Form</h1> 
+        </div>
+        
+        <div class="centre  w-100">
+            <button class="addContact p1" onclick="showForm()"> Add Contact <i class="bi bi-plus-circle mx-1"></i> </button> 
+        </div>
+        
+        <div class="right w-100">
+            <div class="search-form">
+                <input id="search" class="search-bar w-90" type="text" placeholder="Search Contact">
+                <button><i class="bi bi-search"></i></button>
+            </div>            
+        </div> 
     </div>
 
     <div class="backdrop invisible">
-        <form class="mainform w-50 mt-2 " >
+        <form class="mainform mobile-xs mobile-s mobile-m mobile-l mobile-xl mobile-xxl w-50 mt-2 " >
             <div class="w-100">
                 <label class="name w-100 text-left">Name:</label>
                 <div class="content w-100 ">          
@@ -35,7 +43,6 @@
                         <span data-id="lName" class="invisible error-feedback text-danger">Please fill in the last name </span><br>
                         <label for="lName" class="w-100 light-colour">Last Name </label>
                     </div>
-
                 </div>
             </div>        
 
@@ -64,16 +71,16 @@
             </div>
 
             <div class="buttons-action mt-2">
-                <button class="primary w-50 submit-form" onclick="getData()" type="button" >
+                <button class="primary w-50 submit-form" onclick="getData(),  hideForm()" type="button" >
                     Submit<i class="bi bi-check-circle"></i>
                 </button>
-                <button class=" w-50 cancle-form" onclick="hideForm()" type="button">
+                <button class=" w-50 cancel-form" onclick="hideForm()" type="button">
                     Cancel<i class="bi bi-x-circle"></i>
                 </button>
             </div>
         </form>
     </div>
-        <button class="addContact" onclick="showForm()">Add Contacts</button>
+       
 
 
        <div class="alert-container">            
@@ -85,7 +92,7 @@
         </div>
 
 
-
+<script src="persons.js"></script>
 <script src="core.js"></script>
 </body>
 </html>
