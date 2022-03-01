@@ -33,6 +33,9 @@ function getData(){
     store.push({fName: fName.value, lName : lName.value, address : address.value, email : email.value, phoneNumber : phoneNumber.value});
 
     render()
+
+    createAlert('success', 'You have saved the contact successfully!', 2);
+
     document.querySelector('form').reset();
 }
 
@@ -50,7 +53,7 @@ function render() {
         cardTemplate(i);        
     }
 
-    createAlert('success', 'You have saved the contact successfully!', 2);
+    
 
     container.innerHTML = template;
 }
@@ -203,16 +206,17 @@ function hideForm() {
     document.querySelector('.backdrop').classList.add('invisible');
 }
 
-document.getElementById('search').addEventListener('keydown',
+document.getElementById('search').addEventListener('keyup',
 (event)=>{
-    console.log(event)
-    console.log(event.target.value)
 
+    event.keyCode==8 ? store = persons : ''
+   
     store = store.filter((item)=>{
-        if( item.fName.includes(event.target.value)){
+        if( item.fName.toLowerCase().match(event.target.value)){
             return item;
         }
     })
+    
     render();
 })
 
