@@ -127,16 +127,17 @@ function validate(data) {
  * @param {*} i 
  */
 function cardTemplate(i) {
-   
+
     template +=` 
-    
+        
         <div class="card">
 
             <div class="title"> 
-                         
+                <div>
+                    <div class="circle"></div>
+                </div>        
                 <h3>${store[i].fName}  
-                ${store[i].lName}</h3> 
-                <div class="circle"></div>                 
+                ${store[i].lName}</h3>                                 
             </div>
             <hr>
             
@@ -191,6 +192,15 @@ function edit(index) {
     phoneNumber.value = store[index].phoneNumber
 
     store = store.filter( (item, key) =>  key != index);
+    
+}
+
+function showForm(){
+    document.querySelector('.backdrop').classList.remove('invisible');
+}
+
+function hideForm() {
+    document.querySelector('.backdrop').classList.add('invisible'); 
 }
 
 

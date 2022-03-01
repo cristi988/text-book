@@ -175,6 +175,20 @@
     border:none;
 }
 
+.cancle-form {
+    padding: 1rem;    
+    border-radius: 5px;
+    font-size: 17px;
+    border:none;
+    background-color: #343a40;
+    color: #dc3545;
+}
+
+.buttons-action {
+    display: flex;
+    justify-content: space-between;
+}
+
 .text-book {
     width: 100%;
    
@@ -242,10 +256,11 @@
 .circle {
     width: 50px;
     height: 50px;
-    border-radius:50%;
+    border-radius: 50px;
     background-image: url('https://images.ctfassets.net/lzny33ho1g45/4ODoWVyzgicvbcb6J9ZZZ5/89e33c333afa86e9e2864ba42833a5be/app-tips-google-forms-00-hero.png?w=1520&fm=jpg&q=30&fit=thumb&h=760');
     background-size: cover;
     background-position: center;
+    margin-right: 20px;
 }
 
 
@@ -304,7 +319,7 @@ button {
     }
 
     .card {
-        width: 20%;
+        width: 30%;
         margin : auto;
         margin-top: 2rem;
         justify-content: space-evenly;
@@ -447,6 +462,28 @@ button {
 }
 
 
+
+/* Modal*/
+
+.backdrop {
+   background-color: rgba(0, 0, 0, 1);
+   width: 100%;
+   height: 100%;
+   position: absolute;
+
+}
+
+.addContact {
+    font-size: 30px;
+    padding: 1rem;    
+    border-radius: 5px;
+    font-size: 17px;
+    border:none;
+    background-color: var(--info);
+    margin : auto;
+    margin-top: 10px;
+  
+}
 
 
 
