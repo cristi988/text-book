@@ -16,7 +16,7 @@
         </div>
         
         <div class="centre  w-100">
-            <button class="addContact p1" onclick="showForm()"> Add Contact <i class="bi bi-plus-circle mx-1"></i> </button> 
+            <button class="addContact p1" onclick="renderForm()"> Add Contact <i class="bi bi-plus-circle mx-1"></i> </button> 
         </div>
         
         <div class="right w-100">
@@ -28,66 +28,16 @@
     </div>
 
     <div class="backdrop invisible">
-        <form class="mainform mobile-xs mobile-s mobile-m mobile-l mobile-xl mobile-xxl w-50 mt-2 " >
-            <div class="w-100">
-                <label class="name w-100 text-left">Name:</label>
-                <div class="content w-100 ">          
-                    <div class="inline-form-control test w-50">
-                        <input class="rows w-100" type="text" name="fName" id="fName" maxlength="15">
-                        <span data-id="fName" class="invisible error-feedback text-danger"> Please fill in the first name </span><br>
-                        <label for="fName" class="w-100 light-colour">First Name </label>
-                    </div>
-
-                    <div class="inline-form-control test w-50">
-                        <input class="rows w-100" type="text" name="lName" id="lName" maxlength="20">
-                        <span data-id="lName" class="invisible error-feedback text-danger">Please fill in the last name </span><br>
-                        <label for="lName" class="w-100 light-colour">Last Name </label>
-                    </div>
-                </div>
-            </div>        
-
-            <div class="content w-100 ">
-                <div class="inline-form-control w-100 mt-2">
-                    <label for="email">Email: </label>
-                    <span data-id="email" class="invisible error-feedback text-danger">Please fill in the email </span><br>
-                    <input class="rows w-100 mt-1" type="email" name="email" id="email" maxlength="30">
-                </div>
-            </div>
-            
-            <div class="content w-100">
-                <div class="inline-form-control w-100 mt-1">
-                    <label for="address">Address: </label>
-                    <span data-id="address" class="invisible error-feedback text-danger">Please fill in the address </span><br>
-                    <input class="rows w-100 mt-1" type="text" name="addr" id="address">
-                </div>
-            </div>
-
-            <div class="content w-100">
-                <div class="inline-form-control w-100 mt-1">
-                    <label for="phone-number"> Phone number: </label>
-                    <span data-id="phone-number" class="invisible error-feedback text-danger">Please fill in the phone nubmer </span><br>
-                    <input class="rows w-100 mt-1" type="text" name="phone-number" id="phone-number" maxlength="11">
-                </div>
-            </div>
-
-            <div class="buttons-action mt-2">
-                <button class="primary w-50 submit-form" onclick="getData(),  hideForm()" type="button" >
-                    Submit<i class="bi bi-check-circle"></i>
-                </button>
-                <button class=" w-50 cancel-form" onclick="hideForm()" type="button">
-                    Cancel<i class="bi bi-x-circle"></i>
-                </button>
-            </div>
-        </form>
     </div>
+    
        
 
 
        <div class="alert-container">            
-        </div>  
+       </div>  
 
         <div class="text-book">
-            <!-- <h2>Contacts</h2>             -->
+            <h2>Contacts</h2>
             <div class="text-book-content"></div>            
         </div>
 
@@ -96,3 +46,4 @@
 <script src="core.js"></script>
 </body>
 </html>
+

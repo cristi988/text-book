@@ -245,7 +245,7 @@
 }
 
 .alert-container {
-    height: 70px;
+    height: 80px;
 }
 
 .circle {
@@ -269,7 +269,7 @@
     background-color: var(--info);
     display: flex;
     justify-content: space-between;
-    position: fixed;
+    /* position: fixed; */
 }
 
 
@@ -329,15 +329,19 @@
 /* End of NavBar*/
 
 /* Modal*/
-.backdrop {
+.backdrop{
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
     padding-top : 10%;
     position: absolute;
-    z-index: 999;
+    top: 0px;
+    z-index: 999; 
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
 /*End of Modal*/
 
 
@@ -393,13 +397,10 @@ button {
 
     .text-book-content {
         width: 100%;
-        padding-top: 5rem;
     }
 
     .card {
         width: 25%;
-        margin : auto;
-        margin-top: 2rem;
         justify-content: space-evenly;
     }
 
@@ -487,7 +488,7 @@ button {
     }
 
     .mobile-m {
-        width: 92.7%;
+        width: 80%;
     }
 }
 
@@ -551,7 +552,7 @@ button {
         width: 100%;
         flex-direction: column;  
         text-align: left;  
-        margin-top: 60px;
+        /* margin-top: 60px; */
     }
 
     .card {

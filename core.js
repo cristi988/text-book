@@ -1,16 +1,15 @@
 
-let store = persons;
+let store = [];
+
+let people = [];
 
 let template = ``;
 
-let fName = document.getElementById('fName');
-let lName = document.getElementById('lName');
-let email = document.getElementById('email');
-let address = document.getElementById('address');
-let phoneNumber = document.getElementById('phone-number');
+
+fusion();
 
 render();
-// window.alert(response)
+
 
 /**
  * This function gets the data from inputs
@@ -32,7 +31,9 @@ function getData(){
 
     store.push({fName: fName.value, lName : lName.value, address : address.value, email : email.value, phoneNumber : phoneNumber.value});
 
-    render()
+    fusion();  
+
+    render();
 
     createAlert('success', 'You have saved the contact successfully!', 2);
 
@@ -44,16 +45,15 @@ function getData(){
  * 
  */
 function render() {
-
+    
     let container = document.querySelector('.text-book-content');
 
     template = '';
 
-    for(i = 0; i < store.length; i++){    
+    for(i = 0; i < people.length; i++){    
         cardTemplate(i);        
     }
 
-    
 
     container.innerHTML = template;
 }
@@ -68,7 +68,7 @@ function remove(index){
     let response = window.confirm('Are you sure?');
 
     if (response == true) {
-        store = store.filter( (item, key) =>  key != index);
+        people = people.filter( (item, key) =>  key != index);
         render();
         createAlert('danger', 'You have successfully deleted a contact!', 2)
     }
@@ -131,7 +131,7 @@ function validate(data) {
  * @param {*} i 
  */
 function cardTemplate(i) {
-
+    
     template +=` 
         
         <div class="card">
@@ -140,26 +140,25 @@ function cardTemplate(i) {
                 <div>
                     <div class="circle"></div>
                 </div>        
-                <h3>${store[i].fName}  
-                ${store[i].lName}</h3>                                 
+                <h3>${people[i].fName}  
+                ${people[i].lName}</h3>                                 
             </div>
             <hr>
             
             <div class="contents"> 
-            <i class="bi bi-envelope">  ${store[i].email}</i> <br>
-            <i class="bi bi-telephone">  ${store[i].phoneNumber} </i><br>
-            <i class="bi bi-house"> ${store[i].address} </i> 
+            <i class="bi bi-envelope">  ${people[i].email}</i> <br>
+            <i class="bi bi-telephone">  ${people[i].phoneNumber} </i><br>
+            <i class="bi bi-house"> ${people[i].address} </i> 
             </div>
             <hr>
 
             <div class="footer"> 
                 <button class="danger w-40 p1" onclick="remove(${i})">Delete <i class="bi bi-x-square"></i></i></button>
-                <button class="success w-40 p1" onclick="edit(${i}), showForm()" > Edit <i class="bi bi-pencil-square"></i></button>
+                <button class="success w-40 p1" onclick="edit(${i})" > Edit <i class="bi bi-pencil-square"></i></button>
             </div> 
 
         </div>
     `;
-
 }
 
 /**
@@ -187,38 +186,153 @@ function createAlert(type, message, live=2) {
  * 
  * @param {*} index 
  */
-function edit(index) {
+function edit(index) {    
+    renderForm(edit)
+    let fName = document.getElementById('fName');
+    let lName = document.getElementById('lName');
+    let email = document.getElementById('email');
+    let address = document.getElementById('address');
+    let phoneNumber = document.getElementById('phoneNumber');
 
-    fName.value = store[index].fName
-    lName.value = store[index].lName
-    email.value = store[index].email
-    address.value = store[index].address
-    phoneNumber.value = store[index].phoneNumber
-
-    store = store.filter( (item, key) =>  key != index);    
+    fName.value = people[index].fName
+    lName.value = people[index].lName
+    email.value = people[index].email
+    address.value = people[index].address
+    phoneNumber.value = people[index].phoneNumber
 }
 
-function showForm(){
-    document.querySelector('.backdrop').classList.remove('invisible');
-}
+/**
+ * This function makes the scroll to stop
+ * 
+ * @param {*} e 
+ * @returns 
+ */
+ function preventScroll(event) {
+    event.preventDefault();
+    // event.stopPropagation();
 
+    return false;
+}
+/**
+ * This function disable the scroll
+ * 
+ */
+function disable(){
+    document.querySelector('.backdrop').addEventListener('wheel', preventScroll);
+  }
+document.querySelector('.addContact').addEventListener('click', disable);
+
+
+
+
+
+/**
+ * This function makes the form invisible
+ */
 function hideForm() {
     document.querySelector('.backdrop').classList.add('invisible');
 }
 
+
 document.getElementById('search').addEventListener('keyup',
 (event)=>{
-
-    event.keyCode==8 ? store = persons : ''
+    fusion();
+    // event.keyCode==8 ? store = persons : ''
    
-    store = store.filter((item)=>{
-        if( item.fName.toLowerCase().match(event.target.value.toLowerCase())){
+    people = people.filter((item)=>{
+        if( item.fName.toLowerCase().includes(event.target.value.toLowerCase())){
             return item;
         }
-    })
-    
+    })    
     render();
 })
+
+
+/**
+ * This function add the arrays data together 
+ */
+function fusion() {
+    people = [...store, ...persons];
+}
+
+
+
+function renderForm(edit=null) {
+    let button = ` <button class="primary w-50 submit-form" onclick="getData(), hideForm()" type="button" >
+                        Submit<i class="bi bi-check-circle"></i>
+                 </button>`;
+    if(edit != null){
+        button = ` <button class="primary w-50 submit-form" onclick="save(), hideForm()" type="button" >
+                        Edit<i class="bi bi-check-circle"></i>
+                </button>`;
+    }
+
+   let form = `            
+                <form class="mainform mobile-xs mobile-s mobile-m mobile-l mobile-xl mobile-xxl w-50 mt-2 " >
+                    <div class="w-100">
+                        <label class="name w-100 text-left">Name:</label>
+                        <div class="content w-100 ">          
+                            <div class="inline-form-control test w-50">
+                                <input class="rows w-100" type="text" name="fName" id="fName" maxlength="15">
+                                <span data-id="fName" class="invisible error-feedback text-danger"> Please fill in the first name </span><br>
+                                <label for="fName" class="w-100 light-colour">First Name </label>
+                            </div>
+
+                            <div class="inline-form-control test w-50">
+                                <input class="rows w-100" type="text" name="lName" id="lName" maxlength="20">
+                                <span data-id="lName" class="invisible error-feedback text-danger">Please fill in the last name </span><br>
+                                <label for="lName" class="w-100 light-colour">Last Name </label>
+                            </div>
+                        </div>
+                    </div>        
+
+                    <div class="content w-100 ">
+                        <div class="inline-form-control w-100 mt-2">
+                            <label for="email">Email: </label>
+                            <span data-id="email" class="invisible error-feedback text-danger">Please fill in the email </span><br>
+                            <input class="rows w-100 mt-1" type="email" name="email" id="email" maxlength="30">
+                        </div>
+                    </div>
+                    
+                    <div class="content w-100">
+                        <div class="inline-form-control w-100 mt-1">
+                            <label for="address">Address: </label>
+                            <span data-id="address" class="invisible error-feedback text-danger">Please fill in the address </span><br>
+                            <input class="rows w-100 mt-1" type="text" name="addr" id="address">
+                        </div>
+                    </div>
+
+                    <div class="content w-100">
+                        <div class="inline-form-control w-100 mt-1">
+                            <label for="phoneNumber"> Phone number: </label>
+                            <span data-id="phoneNumber" class="invisible error-feedback text-danger">Please fill in the phone nubmer </span><br>
+                            <input class="rows w-100 mt-1" type="text" name="phoneNumber" id="phoneNumber" maxlength="11">
+                        </div>
+                    </div>
+
+                    <div class="buttons-action mt-2">
+                        ${button}
+                        <button class=" w-50 cancel-form" onclick="hideForm()" type="button">
+                            Cancel<i class="bi bi-x-circle"></i>
+                        </button>
+                    </div>
+                </form>           
+    `
+    document.querySelector('.backdrop').innerHTML = form; 
+    document.querySelector('.backdrop').classList.remove('invisible');
+    
+}
+
+function save(id, data) {
+    people[id].fName = data.fName;
+    people[id].lName = data.lName;
+    people[id].email = data.email;
+    people[id].address = data.address;
+    people[id].phoneNumber = data.phoneNumber;
+}
+
+
+
 
 
 
