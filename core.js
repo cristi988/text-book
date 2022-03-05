@@ -187,18 +187,12 @@ function createAlert(type, message, live=2) {
  * @param {*} index 
  */
 function edit(index) {    
-    renderForm(edit)
-    let fName = document.getElementById('fName');
-    let lName = document.getElementById('lName');
-    let email = document.getElementById('email');
-    let address = document.getElementById('address');
-    let phoneNumber = document.getElementById('phoneNumber');
-
-    fName.value = people[index].fName
-    lName.value = people[index].lName
-    email.value = people[index].email
-    address.value = people[index].address
-    phoneNumber.value = people[index].phoneNumber
+    renderForm('edit', index)
+    document.getElementById('fName').value = people[index].fName
+    document.getElementById('lName').value = people[index].lName
+    document.getElementById('email').value = people[index].email
+    document.getElementById('address').value = people[index].address
+    document.getElementById('phoneNumber').value = people[index].phoneNumber
 }
 
 /**
@@ -256,14 +250,14 @@ function fusion() {
 }
 
 
-
-function renderForm(edit=null) {
+//puts the form on the screen
+function renderForm(edit=null, id=null) {
     let button = ` <button class="primary w-50 submit-form" onclick="getData(), hideForm()" type="button" >
                         Submit<i class="bi bi-check-circle"></i>
                  </button>`;
     if(edit != null){
-        button = ` <button class="primary w-50 submit-form" onclick="save(), hideForm()" type="button" >
-                        Edit<i class="bi bi-check-circle"></i>
+        button = ` <button class="primary w-50 submit-form" onclick="save(${id}), hideForm()" type="button" >
+                        Update<i class="bi bi-check-circle"></i>
                 </button>`;
     }
 
@@ -323,12 +317,19 @@ function renderForm(edit=null) {
     
 }
 
-function save(id, data) {
-    people[id].fName = data.fName;
-    people[id].lName = data.lName;
-    people[id].email = data.email;
-    people[id].address = data.address;
-    people[id].phoneNumber = data.phoneNumber;
+/**
+ * Updating users
+ * 
+ * @param {*} id 
+ */
+function save(id) {
+    let formData =new FormData(document.querySelector('form'));
+    let person = people[id];
+    formData.forEach((item, key)=>{
+        person[key] = item
+    })
+
+    render()
 }
 
 
