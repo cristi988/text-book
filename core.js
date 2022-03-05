@@ -330,6 +330,8 @@ function save(id) {
     })
 
     render()
+    createAlert('success', 'You have saved the contact successfully!', 2);
+    
 }
 
 
