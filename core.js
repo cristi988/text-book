@@ -181,6 +181,7 @@ function createAlert(type, message, live=2) {
 
 }
 
+
 /**
  * This function edits the data 
  * 
@@ -195,6 +196,7 @@ function edit(index) {
     document.getElementById('phoneNumber').value = people[index].phoneNumber
 }
 
+
 /**
  * This function makes the scroll to stop
  * 
@@ -207,6 +209,8 @@ function edit(index) {
 
     return false;
 }
+
+
 /**
  * This function disable the scroll
  * 
@@ -215,9 +219,6 @@ function disable(){
     document.querySelector('.backdrop').addEventListener('wheel', preventScroll);
   }
 document.querySelector('.addContact').addEventListener('click', disable);
-
-
-
 
 
 /**
@@ -317,6 +318,7 @@ function renderForm(edit=null, id=null) {
     
 }
 
+
 /**
  * Updating users
  * 
@@ -333,9 +335,6 @@ function save(id) {
     createAlert('success', 'You have saved the contact successfully!', 2);
     
 }
-
-
-
 
 
 axios.get('https://api.chucknorris.io/jokes/random').then(response=>{
