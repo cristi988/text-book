@@ -125,6 +125,7 @@ function validate(data) {
     }
 }
 
+
 /**
  * This function creates the template 
  *  
@@ -327,8 +328,8 @@ function renderForm(edit=null, id=null) {
 function save(id) {
     let formData =new FormData(document.querySelector('form'));
     let person = people[id];
-    formData.forEach((item, key)=>{
-        person[key] = item
+    formData.forEach((value, name)=>{
+        person[name] = value
     })
 
     render()
