@@ -338,8 +338,8 @@ function save(id) {
 }
 
 
-axios.get('https://api.chucknorris.io/jokes/random').then(response=>{
-    document.querySelector('.jokeContainer').innerHTML = `<h4>  ${response.data.value}   </h4>`
-})
+// axios.get('https://api.chucknorris.io/jokes/random').then(response=>{
+//     document.querySelector('.jokeContainer').innerHTML = `<h4>  ${response.data.value}   </h4>`
+// })
 
 
