@@ -269,8 +269,8 @@
     background-color: var(--info);
     display: flex;
     justify-content: space-between;
-    position: fixed;
-    z-index: 1000;
+    /* position: fixed; */
+    /* z-index: 1000; */
 }
 
 
